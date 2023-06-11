@@ -9,9 +9,15 @@ range(7, 6); // []
 ***********************************************************************/
 
 function range(start, end) {
-  // Your code here
-}
+  if(end <= start) return [];
+  let sum = [start, ...range(start +1, end)]
+    return sum
+};
 
+Examples:
+range(1, 5); // [1, 2, 3, 4]
+range(3, 4); // [3]
+range(7, 6); // []
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {

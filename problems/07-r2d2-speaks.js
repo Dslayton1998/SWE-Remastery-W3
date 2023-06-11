@@ -15,8 +15,19 @@
 */
 
 function r2d2Speaks(code) {
-  // Your code here
-}
+  if (!code.length) return;
+
+  let firstElement = code.shift();
+
+  if (firstElement === 0) {
+    console.log("beep");
+    setTimeout(r2d2Speaks, 400, code);
+  } else {
+    console.log("boop");
+    setTimeout(r2d2Speaks, 800, code);
+  }
+};
+
 
 let code = [0, 1, 1, 0];
 r2d2Speaks(code);

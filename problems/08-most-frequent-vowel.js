@@ -47,7 +47,35 @@ Run tests on just this file by typing `npm test test/03-most-frequent-vowel-spec
 on the command line.
 ***********************************************************************/
 
-// Your code here
+const VOWELS = ["a", "e", "i", "o", "u"];
+
+let mostFrequentVowel = function (words, counter = {}) {
+  if (words.length === 0) {
+    let highest = -Infinity;
+    let currentMost = "";
+
+    for (let key in counter) {
+      if (counter[key] > highest) {
+        highest = counter[key];
+        currentMost = key;
+      }
+    }
+    return currentMost;
+  }
+
+  for (let i = 0; i < words[0].length; i++) {
+    let letter = words[0][i];
+    if (VOWELS.includes(letter)) {
+      if (counter[letter] === undefined) {
+        counter[letter] = 1;
+      } else {
+        counter[letter] += 1;
+      }
+    }
+  }
+
+  return mostFrequentVowel(words.slice(1), counter);
+};
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
